@@ -1,18 +1,18 @@
-import { Flex } from "antd";
+import { Space } from "antd";
 import { ConverterCard } from "@/components/converter-card";
 
 interface ConvertersListProps {
-    converters: { id: number; name: string }[];
+    converters: IConverter[];
 }
 
 export function ConvertersList(props: ConvertersListProps) {
     const { converters } = props;
 
     return (
-        <Flex vertical>
+        <Space direction="vertical">
             {converters.map((converter) => (
-                <ConverterCard converter={converter} key={converter.id} />
+                <ConverterCard key={converter.id} {...converter} />
             ))}
-        </Flex>
+        </Space>
     );
 }
